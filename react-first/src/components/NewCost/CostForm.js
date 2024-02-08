@@ -4,13 +4,14 @@ import './CostForm.css';
 function CostForm(props) {
 
     const [inputTitle, setInputTitle] = useState("");
-    const [inputAmount, setInputAmount] = useState("");
+    const [inputAmount, setInputAmount] = useState(0);
     const [inputDate, setInputDate] = useState("");
 
     const titleChangeHandler = (event) => {
         setInputTitle(event.target.value);
     };
     const amountChangeHandler = (event) => {
+        console.log(event.target.value)
         setInputAmount(event.target.value);
     };
     const dateChangeHandler = (event) => {
@@ -22,14 +23,14 @@ function CostForm(props) {
 
         const costData = {
             title: inputTitle,
-            amount: inputAmount,
+            amount: Number(inputAmount),
             date: new Date(inputDate)
         }
 
         props.onSaveCostData(costData);
 
         setInputTitle('')
-        setInputAmount('');
+        setInputAmount(0);
         setInputDate('');
     };
 
@@ -51,7 +52,6 @@ function CostForm(props) {
                 </div>
                 <div className="new-cost__actions">
                     <button type="submit">Добавить расход</button>
-                    <button type="submit">Отмена</button>
                 </div>
             </div>
         </form>
