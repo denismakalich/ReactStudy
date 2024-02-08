@@ -4,7 +4,7 @@ import './CostForm.css';
 function CostForm(props) {
 
     const [inputTitle, setInputTitle] = useState("");
-    const [inputAmount, setInputAmount] = useState(0);
+    const [inputAmount, setInputAmount] = useState("");
     const [inputDate, setInputDate] = useState("");
 
     const titleChangeHandler = (event) => {
@@ -52,6 +52,7 @@ function CostForm(props) {
                 </div>
                 <div className="new-cost__actions">
                     <button type="submit">Добавить расход</button>
+                    <button type="button" onClick={props.onCancel}>Отмена</button>
                 </div>
             </div>
         </form>
